@@ -51,7 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md LICENSE-MIT 
+%doc README.md LICENSE-MIT
+%dir %{ruby_vendorlibdir}/http
 %{ruby_vendorlibdir}/http/parser.rb
 %{ruby_vendorlibdir}/%{pkgname}
 %attr(755,root,root) %{ruby_vendorarchdir}/ruby_http_parser.so
