@@ -31,6 +31,8 @@ Ruby bindings to <http://github.com/ry/http-parser> and
 %setup -q -n %{pkgname}-%{version}
 
 %build
+%__gem_helper spec
+
 cd ext/ruby_http_parser
 %{__ruby} extconf.rb
 %{__make} V=1 \
@@ -40,11 +42,10 @@ cd ext/ruby_http_parser
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{ruby_vendorlibdir}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_vendorarchdir},%{ruby_specdir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
-
-install -d $RPM_BUILD_ROOT%{ruby_vendorarchdir}
 install -p ext/ruby_http_parser/ruby_http_parser.so $RPM_BUILD_ROOT%{ruby_vendorarchdir}
+cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,3 +57,4 @@ rm -rf $RPM_BUILD_ROOT
 %{ruby_vendorlibdir}/http/parser.rb
 %{ruby_vendorlibdir}/%{pkgname}
 %attr(755,root,root) %{ruby_vendorarchdir}/ruby_http_parser.so
+%{ruby_specdir}/%{pkgname}-%{version}.gemspec
