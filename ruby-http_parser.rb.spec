@@ -6,7 +6,7 @@
 Summary:	Simple callback-based HTTP request/response parser
 Name:		ruby-%{pkgname}
 Version:	0.5.3
-Release:	2
+Release:	3
 License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
