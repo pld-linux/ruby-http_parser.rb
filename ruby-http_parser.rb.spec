@@ -5,15 +5,15 @@
 %define	pkgname	http_parser.rb
 Summary:	Simple callback-based HTTP request/response parser
 Name:		ruby-%{pkgname}
-Version:	0.5.3
-Release:	7
-License:	GPL v2+ or Ruby
+Version:	0.8.1
+Release:	1
+License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	7782c17d0c984f33bd82acbe9bcbaec8
+# Source0-md5:	e9076a195360ed822cc0f479ac186006
 URL:		http://github.com/tmm1/http_parser.rb
 BuildRequires:	rpm-rubyprov
-BuildRequires:	rpmbuild(macros) >= 1.656
+BuildRequires:	rpmbuild(macros) >= 1.665
 BuildRequires:	ruby-devel
 %if %{with tests}
 BuildRequires:	ruby-json >= 1.4.6
@@ -53,8 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md LICENSE-MIT
+%{ruby_vendorlibdir}/http_parser.rb
 %dir %{ruby_vendorlibdir}/http
 %{ruby_vendorlibdir}/http/parser.rb
-%{ruby_vendorlibdir}/%{pkgname}
 %attr(755,root,root) %{ruby_vendorarchdir}/ruby_http_parser.so
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
