@@ -6,7 +6,7 @@
 Summary:	Simple callback-based HTTP request/response parser
 Name:		ruby-%{pkgname}
 Version:	0.8.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
